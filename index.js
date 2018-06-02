@@ -1,5 +1,11 @@
 var cart = [];
 
+addToCart("bananas");
+addToCart("ice cream");
+
+viewCart();
+
+
 function getCart() {
  return cart;
 }
@@ -10,11 +16,42 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+ let valu = {
+   itemName: item,
+   itemPrice: Math.floor(Math.random() * 101)
+ };
+ cart.push(valu);
+ return (item + " has been added to your cart.");
 }
 
 function viewCart() {
-  // write your code here
+  if (cart.length > 0){
+    var cart1 = [];
+    var i;
+    
+    for (i=0; i<cart.length; i++){
+      if (i===0){
+      cart1.push(cart[i].itemName + " at " + "$" + cart[i].itemPrice);
+      }
+      else{
+      cart1.push(" " + cart[i].itemName + " at " + "$" + cart[i].itemPrice);
+      }
+    }
+        if (cart.length === 2){
+          
+      return ("In your cart, you have " + cart[0].itemName + " at " + "$" + cart[0].itemPrice + " and " + cart[1].itemName + " at " + cart[1].itemPrice + ".");
+    }
+    else{
+    return ("In your cart, you have " + cart1 + ".");
+    }
+  }
+  else{
+
+    
+      return ("Your shopping cart is empty.");
+    
+    
+  }
 }
 
 function total() {
